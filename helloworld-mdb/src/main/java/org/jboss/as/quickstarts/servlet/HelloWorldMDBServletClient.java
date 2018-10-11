@@ -23,8 +23,6 @@ import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.jms.Destination;
 import javax.jms.JMSContext;
-import javax.jms.JMSDestinationDefinition;
-import javax.jms.JMSDestinationDefinitions;
 import javax.jms.Queue;
 import javax.jms.Topic;
 import javax.servlet.ServletException;
@@ -37,20 +35,6 @@ import javax.servlet.http.HttpServletResponse;
  * Definition of the two JMS destinations used by the quickstart
  * (one queue and one topic).
  */
-@JMSDestinationDefinitions(
-    value = {
-        @JMSDestinationDefinition(
-            name = "java:/queue/HELLOWORLDMDBQueue",
-            interfaceName = "javax.jms.Queue",
-            destinationName = "HelloWorldMDBQueue"
-        ),
-        @JMSDestinationDefinition(
-            name = "java:/topic/HELLOWORLDMDBTopic",
-            interfaceName = "javax.jms.Topic",
-            destinationName = "HelloWorldMDBTopic"
-        )
-    }
-)
 
 /**
  * <p>
@@ -75,10 +59,10 @@ public class HelloWorldMDBServletClient extends HttpServlet {
     @Inject
     private JMSContext context;
 
-    @Resource(lookup = "java:/queue/HELLOWORLDMDBQueue")
+    @Resource(lookup = "java:/jms/remote-amq/queue/HELLOWORLDMDBQueue")
     private Queue queue;
 
-    @Resource(lookup = "java:/topic/HELLOWORLDMDBTopic")
+    @Resource(lookup = "java:/jms/remote-amq/topic/HELLOWORLDMDBTopic")
     private Topic topic;
 
     @Override
