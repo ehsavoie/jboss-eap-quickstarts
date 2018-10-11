@@ -59,10 +59,10 @@ public class HelloWorldMDBServletClient extends HttpServlet {
     @Inject
     private JMSContext context;
 
-    @Resource(lookup = "java:/jms/remote-amq/queue/HELLOWORLDMDBQueue")
+    @Resource(lookup = "java:/jms/remote-amq/queue/HelloWorldMDBQueue")
     private Queue queue;
 
-    @Resource(lookup = "java:/jms/remote-amq/topic/HELLOWORLDMDBTopic")
+    @Resource(lookup = "java:/jms/remote-amq/topic/HelloWorldMDBTopic")
     private Topic topic;
 
     @Override
